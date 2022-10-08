@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import {Routes, BrowserRouter, Route} from 'react-router-dom';
+import { Routes, BrowserRouter, Route } from 'react-router-dom';
 import Top from  './main/Top'
 
 function App() {
