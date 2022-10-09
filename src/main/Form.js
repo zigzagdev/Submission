@@ -1,19 +1,24 @@
 import React, {Fragment} from "react";
+import { useForm } from 'react-hook-form';
 
-
-const style = {
-    backgroundColor:"black",
-    position:"absolute",
-    bottom: 0,
-    width:"100%",
-    height:80,
+const error_message = {
+    color:"red",
+    fontSize:"15px",
 }
+
+const {
+    register,
+    handleSubmit,
+    formState: { errors },
+} = useForm();
+
 
 const Form = () => {
     return(
         <div className="form">
           <form>
-              <input type="email"/>
+            <input id="email" {...register('email', { required: true })} />
+            {errors.email && <div style={error_message}>メールアドレスの入力は必須項目です。</div>}
           </form>
         </div>
     )
