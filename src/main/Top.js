@@ -1,12 +1,12 @@
 import React from "react";
 
 
-function Footer() {
+function Top() {
     return(
         <div>
-            aaaaa
+            aaaaabb
         </div>
     )
 }
 
-export default Footer;
+export default Top;
