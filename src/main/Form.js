@@ -6,8 +6,6 @@ const error_message = {
     fontSize:"15px",
 }
 
-
-
 const Form = () => {
     const {
         register,
