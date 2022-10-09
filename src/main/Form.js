@@ -6,14 +6,14 @@ const error_message = {
     fontSize:"15px",
 }
 
-const {
-    register,
-    handleSubmit,
-    formState: { errors },
-} = useForm();
 
 
 const Form = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
     return(
         <div className="form">
           <form>
