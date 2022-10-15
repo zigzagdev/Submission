@@ -6,15 +6,14 @@ import Form from  './main/Form';
 import Header from './frame/Header';
 import Footer from './frame/Footer';
 
-
 function App() {
   return (
       <div className="Wrapper">
         <Header/>
         <BrowserRouter>
           <Routes>
-            <Route path="/a" element={<Top/>}/>
-            <Route path="/" element={<Form/>}/>
+            <Route path="/" element={<Top/>}/>
+            <Route path="/Form" element={<Form/>}/>
           </Routes>
         </BrowserRouter>
         <Footer/>
