@@ -1,11 +1,14 @@
 import React from "react";
 
+const frame =  {
+    textAlign: "center"
+}
 
 function Top() {
 
     return(
-        <div>
-
+        <div className="frame">
+            Please submit your form !!
         </div>
     )
 }
