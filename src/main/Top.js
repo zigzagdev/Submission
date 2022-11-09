@@ -1,14 +1,25 @@
 import React from "react";
 
 const frame =  {
-    textAlign: "center"
+    margin: "40px 30px",
+
+}
+
+const topName = {
+    textAlign: "center",
+
 }
 
 function Top() {
 
     return(
         <div className="frame">
-            Please submit your form !!
+            <div className="topName">
+                Top Page here select you what you want .
+            </div>
+            <div>
+
+            </div>
         </div>
     )
 }
