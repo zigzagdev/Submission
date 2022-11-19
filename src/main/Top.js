@@ -10,15 +10,28 @@ const topName = {
 
 }
 
+const mainOpinions = {
+    display: "flex",
+    margin: "10px 20px",
+}
+const eachOpinion = {
+
+}
+
 function Top() {
 
     return(
-        <div className="frame">
-            <div className="topName">
+        <div style={frame}>
+            <div style={topName}>
                 Top Page here select you what you want .
             </div>
-            <div>
-
+            <div className="">
+                These are opinions from everyone. Check it whether you want to ask is here or not .
+            </div>
+            <div style={mainOpinions}>
+                <div style={eachOpinion}>
+                    write down here mysqlConnection.
+                </div>
             </div>
         </div>
     )
