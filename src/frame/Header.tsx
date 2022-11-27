@@ -17,11 +17,11 @@ const aa: { [key: string]: string } = {
 
 const right: { [key: string]: string } = {
     display: "block",
-    marginLeft: '900px'
+    marginLeft: '800px'
 };
 const right2: { [key: string]: string } = {
     display: "block",
-    marginLeft: '120px'
+    marginLeft: '10px'
 };
 
 const formButton: { [key: string]: string } = {
@@ -33,13 +33,13 @@ const Header = () => {
     return(
         <div style={outLine}>
             <div style={eachBox}>
-                left side
+                SubmissionForm
             </div>
             <div style={right}>
-
+                <Button variant="contained" href="../" color="success">TopPage</Button>
             </div>
             <div style={right2}>
-                <Button variant="contained" href="../Form">FormPage</Button>
+                <Button variant="contained" href="../Form" color="secondary">FormPage</Button>
             </div>
         </div>
     )
