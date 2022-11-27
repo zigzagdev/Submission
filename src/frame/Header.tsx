@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Button} from "@mui/material";
 
 const outLine: { [key: string]: string } = {
     display: "flex",
@@ -16,12 +17,18 @@ const aa: { [key: string]: string } = {
 
 const right: { [key: string]: string } = {
     display: "block",
-    marginLeft: '1000px'
+    marginLeft: '900px'
 };
 const right2: { [key: string]: string } = {
     display: "block",
-    marginLeft: '30px'
+    marginLeft: '120px'
 };
+
+const formButton: { [key: string]: string } = {
+
+};
+
+
 const Header = () => {
     return(
         <div style={outLine}>
@@ -29,10 +36,10 @@ const Header = () => {
                 left side
             </div>
             <div style={right}>
-                right side
+
             </div>
             <div style={right2}>
-                right side2
+                <Button variant="contained" href="../Form">FormPage</Button>
             </div>
         </div>
     )

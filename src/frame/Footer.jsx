@@ -1,9 +1,14 @@
 import React from "react";
 
+const style = {
+    marginTop: "auto",
+    width: "100%",
+};
+
 
 function Footer() {
     return(
-        <div>
+        <div style={style}>
             aaaaa
         </div>
     )
