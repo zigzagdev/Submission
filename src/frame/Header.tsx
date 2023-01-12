@@ -33,7 +33,7 @@ const Header = () => {
     return(
         <div style={outLine}>
             <div style={eachBox}>
-                SubmissionForm
+                SubmissionPage
             </div>
             <div style={right}>
                 <Button variant="contained" href="../" color="success">TopPage</Button>
