@@ -26,7 +26,6 @@ const topPage = {
 }
 
 function Top() {
-
     return(
         <div style={frame}>
             <div style={topPage}>
