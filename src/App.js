@@ -13,7 +13,6 @@ import Footer from './frame/Footer';
 
 
 
-
 function App() {
   return (
       <div className="Wrapper">
