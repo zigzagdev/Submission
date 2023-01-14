@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/test", function(req, res) {
+app.get("/", function(req, res) {
     res.send("go to /posts to see posts");
 });
 
