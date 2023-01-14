@@ -13,8 +13,8 @@ function App() {
         <Header/>
         <BrowserRouter>
           <Routes>
-            <Route path="/a" element={<Top/>}/>
-            <Route path="/" element={<Form/>}/>
+            <Route path="/" element={<Top/>}/>
+            <Route path="/Form" element={<Form/>}/>
           </Routes>
         </BrowserRouter>
         <Footer/>
