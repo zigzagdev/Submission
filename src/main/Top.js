@@ -1,4 +1,5 @@
 import React from "react";
+import mysql from "mysql";
 
 const frame =  {
     margin: "50px 90px",
@@ -26,6 +27,15 @@ const topPage = {
 }
 
 function Top() {
+    const mysql = require('mysql');
+
+    const connection = mysql.createConnection({
+        host : 'localhost',
+        port : 'root',
+        user : 'root',
+        database: 'submission'
+    });
+
     return(
         <div style={frame}>
             <div style={topPage}>

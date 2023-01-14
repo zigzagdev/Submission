@@ -3,7 +3,7 @@ import {Button} from "@mui/material";
 
 const outLine: { [key: string]: string } = {
     display: "flex",
-    margin: "60px 0 31px 30px",
+    marginTop: "60px",
 };
 
 const eachBox: { [key: string]: string } = {
@@ -11,21 +11,18 @@ const eachBox: { [key: string]: string } = {
     marginLeft: "50px",
     fontSize: "30px",
 };
-const aa: { [key: string]: string } = {
-    width:"250px",
-};
 
 const right: { [key: string]: string } = {
     display: "block",
-    marginLeft: '800px'
 };
 const right2: { [key: string]: string } = {
     display: "block",
-    marginLeft: '10px'
+    margin: '0 10px'
 };
 
-const formButton: { [key: string]: string } = {
-
+const headerSame: { [key: string]: string } = {
+    margin: "auto",
+    display: "flex"
 };
 
 
@@ -35,11 +32,16 @@ const Header = () => {
             <div style={eachBox}>
                 SubmissionPage
             </div>
-            <div style={right}>
-                <Button variant="contained" href="../" color="success">TopPage</Button>
-            </div>
-            <div style={right2}>
-                <Button variant="contained" href="../Form" color="secondary">FormPage</Button>
+            <div style={headerSame}>
+                <div style={right}>
+                    <Button variant="contained" href="../" color="success">TopPage</Button>
+                </div>
+                <div style={right2}>
+                    <Button variant="contained" href="../Form" color="secondary">FormPage</Button>
+                </div>
+                <div style={right2}>
+                    <Button variant="contained" href="../Question" color="secondary">QuestionIndex</Button>
+                </div>
             </div>
         </div>
     )

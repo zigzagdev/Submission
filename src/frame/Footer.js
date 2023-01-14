@@ -9,7 +9,7 @@ const style = {
 function Footer() {
     return(
         <div style={style}>
-sss
+            mysql
         </div>
     )
 }
