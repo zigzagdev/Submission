@@ -1,5 +1,4 @@
 import React from "react";
-import mysql from "mysql";
 
 const frame =  {
     margin: "50px 90px",
