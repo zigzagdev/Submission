@@ -1,9 +1,5 @@
 import React from 'react';
 
-const aa = {
-    marginTop: "30px"
-}
-
 const main = {
     display: "flex",
     flexDirection: "column",
@@ -15,72 +11,8 @@ const Top = () => {
     console.log('here')
     return (
         <div style={main}>
-            ssfsdfdsaf
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-            <div style={aa}>
-                ddd
-            </div>
-        </div>
 
+        </div>
     );
 };
 
