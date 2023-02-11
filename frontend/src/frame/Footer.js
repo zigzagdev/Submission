@@ -13,16 +13,8 @@ const leftInner = {
 }
 
 const outline = {
-    display: 'flex',
-    height: 100,
-    backgroundColor: 'snow',
-    minWidth: '1024px',
+    display: "grid",
 }
-
-const headerSame = {
-    display: "flex",
-    margin: "0 40px 0 auto",
-};
 
 const right1 = {
     color: "darkblue",
@@ -33,7 +25,7 @@ const right1 = {
 const Footer = () => {
     return (
         <div style={outline}>
-            <div style={headerSame}>
+            <div style={{margin: "20px 60px 23px auto"}}>
                 <div style={inner}>
                     <p style={right1}>Top</p>
                 </div>
