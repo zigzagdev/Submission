@@ -3,7 +3,6 @@ import {Button} from "@mui/material";
 
 const outline = {
     display:'flex',
-    justifyContent:'space-between',
     height: 100,
     backgroundColor: 'snow',
     minWidth:'1024px',
