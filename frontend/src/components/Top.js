@@ -41,36 +41,6 @@ const Top = () => {
             <div>
                 ssfsdfdsaf
             </div>
-            <div>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
         </div>
 
     );
