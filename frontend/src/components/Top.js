@@ -71,12 +71,6 @@ const Top = () => {
             <div style={aa}>
                 ssfsdfdsaf
             </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
-            <div style={aa}>
-                ssfsdfdsaf
-            </div>
         </div>
 
     );

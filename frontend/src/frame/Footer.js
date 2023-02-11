@@ -1,12 +1,4 @@
 import React from 'react';
-import {Button} from "@mui/material";
-
-const style = {
-    width: "100%",
-    height: "180px",
-    display: "flex",
-    margin: "0 40px 0 auto",
-};
 
 const inner = {
     display: "inline-block",
@@ -26,11 +18,6 @@ const outline = {
     backgroundColor: 'snow',
     minWidth: '1024px',
 }
-
-const right2 = {
-    display: "block",
-    margin: '30px 10px'
-};
 
 const headerSame = {
     display: "flex",
@@ -61,3 +48,14 @@ const Footer = () => {
     )
 }
 export default Footer;
+
+
+
+
+
+
+
+
+
+
+
