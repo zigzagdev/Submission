@@ -9,24 +9,6 @@ const outline = {
     minWidth:'1024px',
 }
 
-const style = {
-    textAlign: "right",
-    paddingRight: 100,
-    lineHeight:3,
-    fontSize: 30,
-
-}
-
-const style2 = {
-    textAlign: "left",
-    fontSize: 30,
-    paddingLeft: 100,
-    lineHeight:3,
-
-}
-const right = {
-    display: "block",
-};
 const right2 = {
     display: "block",
     margin: '30px 10px'
@@ -50,7 +32,6 @@ const font = {
     fontSize: "30px",
     color: "gray"
 }
-
 
 const Header = () => {
     return (
