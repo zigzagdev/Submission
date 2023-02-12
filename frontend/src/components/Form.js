@@ -64,7 +64,7 @@ const Form = () => {
                 </div>
                 <div>
                     <label htmlFor="opinion">Opinion</label>
-                    <input id="opinion"
+                    <textarea id="opinion"
                            name="opinion"
                            value={opinion}
                            onChange={handleChangeOpinion}/>
