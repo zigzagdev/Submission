@@ -13,13 +13,13 @@ const db = mysql.createConnection({
     database: "react",
 });
 
-app.post("/create", (req, res) => {
+app.post("/form", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-
+    console.log('here');
     db.query(
-        "INSERT INTO react (email, password, name) VALUES (?,?,?)",
+        "INSERT INTO user (email, password, name) VALUES (?,?,?)",
         [name, email, password],
         (err, result) => {
             if (err) {
