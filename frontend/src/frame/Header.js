@@ -42,10 +42,10 @@ const Header = () => {
             </div>
             <div style={headerSame}>
                 <div style={right2}>
-                    <Button variant="contained" href="../" color="success">TopPage</Button>
+                    <Button variant="contained" href="../" color="success">Top</Button>
                 </div>
                 <div style={right2}>
-                    <Button variant="contained" href="../Form" color="secondary">FormPage</Button>
+                    <Button variant="contained" href="../Form" color="info">Form</Button>
                 </div>
                 <div style={right2}>
                     <Button variant="contained" href="../Question" color="secondary">QuestionIndex</Button>
