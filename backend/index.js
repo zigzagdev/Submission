@@ -13,14 +13,14 @@ const db = mysql.createConnection({
     database: "react",
 });
 
-app.post("/form", (req, res) => {
+app.post("/Form", (req, res) => {
     const name = req.body.name;
-    const email = req.body.email;
     const password = req.body.password;
+    const email = req.body.email
     console.log('here');
     db.query(
-        "INSERT INTO user (email, password, name) VALUES (?,?,?)",
-        [name, email, password],
+        "INSERT INTO user (name, email, password) VALUES (?, ?, ?)",
+        [name, email,  password],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -30,45 +30,45 @@ app.post("/form", (req, res) => {
         }
     );
 });
-
-app.get("/", (req, res) => {
-    db.query("SELECT * FROM react", (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-    });
-});
-
-app.put("/update", (req, res) => {
-    const id = req.body.id;
-    const name = req.body.name;
-    const email = req.body.email;
-
-    db.query(
-        "UPDATE react SET name = ?, email = ? WHERE id = ?",
-        [name, id, email],
-        (err, result) => {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(result);
-            }
-        }
-    );
-});
-
-app.delete("/delete/:id", (req, res) => {
-    const id = req.params.id;
-    db.query("DELETE FROM react WHERE id = ?", id, (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-    });
-});
+//
+// app.get("/", (req, res) => {
+//     db.query("SELECT * FROM react", (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.send(result);
+//         }
+//     });
+// });
+//
+// app.put("/update", (req, res) => {
+//     const id = req.body.id;
+//     const name = req.body.name;
+//     const email = req.body.email;
+//
+//     db.query(
+//         "UPDATE react SET name = ?, email = ? WHERE id = ?",
+//         [name, id, email],
+//         (err, result) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send(result);
+//             }
+//         }
+//     );
+// });
+//
+// app.delete("/delete/:id", (req, res) => {
+//     const id = req.params.id;
+//     db.query("DELETE FROM react WHERE id = ?", id, (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.send(result);
+//         }
+//     });
+// });
 
 app.listen(3003, () => {
     console.log("Yey, your server is running on port 3003");
