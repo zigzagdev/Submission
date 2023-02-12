@@ -25,10 +25,23 @@ const eachOpinion = {
 }
 
 const eachCard = {
-    color: "snow",
+    backgroundColor: "snow",
     width: "250px",
     height: "170px",
     borderRadius: "20px",
+    overflowWrap: "hidden",
+    textOverflow: "ellipsis",
+    whitespace: "no-wrap",
+    display: "inline-block",
+    padding: "10%"
+}
+
+const fontStyle = {
+    width: "100%",
+    whitespace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "inline-block",
 }
 
 const Top = () => {
@@ -37,7 +50,7 @@ const Top = () => {
             <div style={opinion}>
                 <div style={totalOpinion}>
                     <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
+                        <Card style={eachCard}><strong style={{color: "black"}}></strong></Card>
                     </div>
                     <div style={eachOpinion}>
                         <Card style={eachCard}>aa</Card>
@@ -64,9 +77,17 @@ const Top = () => {
                         <Card style={eachCard}>aa</Card>
                     </div>
                     <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
+                        <Card style={eachCard}>
+                            <span style={fontStyle}>
+                                dgsdgadfsdfsdffsg<br/>sbbbbbfdasdasfsdfsdafsdfdsfdsfsdfdsfdsfsdydydyydyydyyyydyydyysdfsadfsadyf<br/>dysfdyfyasfsdfsdfdsfsafsdfsafsdfasdfsadfdsafsadyfsyafysadfysdfsdfysyyfdsfyfsadfadsfasfsafsdfdsfsadfsadfasdfa
+                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
+                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
+                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
+                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
+                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
+                            </span>
+                        </Card>
                     </div>
-
                 </div>
             </div>
         </div>
