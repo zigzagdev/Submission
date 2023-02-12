@@ -15,14 +15,12 @@ const db = mysql.createConnection({
 
 app.post("/create", (req, res) => {
     const name = req.body.name;
-    const age = req.body.age;
-    const country = req.body.country;
-    const position = req.body.position;
-    const wage = req.body.wage;
+    const email = req.body.email;
+    const password = req.body.password;
 
     db.query(
-        "INSERT INTO employees (name, age, country, position, wage) VALUES (?,?,?,?,?)",
-        [name, age, country, position, wage],
+        "INSERT INTO react (email, password, name) VALUES (?,?,?)",
+        [name, email, password],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -33,8 +31,8 @@ app.post("/create", (req, res) => {
     );
 });
 
-app.get("/employees", (req, res) => {
-    db.query("SELECT * FROM employees", (err, result) => {
+app.get("/", (req, res) => {
+    db.query("SELECT * FROM react", (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -45,10 +43,12 @@ app.get("/employees", (req, res) => {
 
 app.put("/update", (req, res) => {
     const id = req.body.id;
-    const wage = req.body.wage;
+    const name = req.body.name;
+    const email = req.body.email;
+
     db.query(
-        "UPDATE employees SET wage = ? WHERE id = ?",
-        [wage, id],
+        "UPDATE react SET name = ?, email = ? WHERE id = ?",
+        [name, id, email],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -61,7 +61,7 @@ app.put("/update", (req, res) => {
 
 app.delete("/delete/:id", (req, res) => {
     const id = req.params.id;
-    db.query("DELETE FROM employees WHERE id = ?", id, (err, result) => {
+    db.query("DELETE FROM react WHERE id = ?", id, (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -70,11 +70,10 @@ app.delete("/delete/:id", (req, res) => {
     });
 });
 
-app.listen(3001, () => {
-    console.log("Yey, your server is running on port 3001");
+app.listen(3003, () => {
+    console.log("Yey, your server is running on port 3003");
 });
 
 app.get("/", (req, res) => {
     res.send('hello world');
-    console.log('fsadfsadgs')
 });
