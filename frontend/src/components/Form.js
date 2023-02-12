@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Form(props) {
+const Form = () => {
     return (
         <div>
-            kkkkk
+
         </div>
     );
-}
+};
 
 export default Form;
