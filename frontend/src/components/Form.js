@@ -3,18 +3,15 @@ import {useForm} from 'react-hook-form';
 import axios from "axios";
 
 const Form = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [opinion, setOpinion] = useState("");
     const [error,setError] = useState(false)
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(
-            email,
-            name
-        )
         try {
           await  axios.post("http://localhost:3003/Form", {
               name: name,
@@ -35,6 +32,9 @@ const Form = () => {
         setPassword(e.target.value);
     };
     const handleChangeName = (e) => {
+        setName(e.target.value);
+    };
+    const handleChangeOpinion = (e) => {
         setName(e.target.value);
     };
     return (
@@ -60,6 +60,14 @@ const Form = () => {
                         onChange={handleChangePassword}
                         type="password"
                     />
+                    {error && "here wrong"}
+                </div>
+                <div>
+                    <label htmlFor="opinion">Opinion</label>
+                    <input id="opinion"
+                           name="opinion"
+                           value={opinion}
+                           onChange={handleChangeOpinion}/>
                     {error && "here wrong"}
                 </div>
                 <div>
