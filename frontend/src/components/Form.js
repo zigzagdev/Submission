@@ -1,5 +1,4 @@
 import React, {useState,} from 'react';
-import {useForm} from 'react-hook-form';
 import axios from "axios";
 
 const form = {
@@ -117,3 +116,12 @@ const Form = () => {
     )
 }
 export default Form;
+
+
+
+
+
+
+
+
+
