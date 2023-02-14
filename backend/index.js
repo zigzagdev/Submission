@@ -17,10 +17,11 @@ app.post("/Form", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
     const email = req.body.email
-    console.log('here');
+    const opinion = req.body.opinion
+
     db.query(
-        "INSERT INTO user (name, email, password) VALUES (?, ?, ?)",
-        [name, email,  password],
+        "INSERT INTO user (name, email, password, opinion) VALUES (?, ?, ?, ?)",
+        [name, email,  password, opinion],
         (err, result) => {
             if (err) {
                 console.log(err);
