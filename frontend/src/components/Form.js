@@ -107,7 +107,7 @@ const Form = () => {
                             </div>
                             {error.opinion && "here wrong"}
                         </div>
-                        <div>
+                        <div style={{display: "inline-block", margin: "5% 100%"}}>
                             <button type="submit">Send</button>
                         </div>
                     </form>
