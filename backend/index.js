@@ -25,22 +25,20 @@ app.post("/Form", (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
-            } else {
-                res.send("Values Inserted");
             }
         }
     );
 });
-//
-// app.get("/", (req, res) => {
-//     db.query("SELECT * FROM react", (err, result) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.send(result);
-//         }
-//     });
-// });
+
+app.get("/", (req, res) => {
+    db.query("SELECT * FROM user", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
 //
 // app.put("/update", (req, res) => {
 //     const id = req.body.id;
@@ -73,8 +71,4 @@ app.post("/Form", (req, res) => {
 
 app.listen(3003, () => {
     console.log("Yey, your server is running on port 3003");
-});
-
-app.get("/", (req, res) => {
-    res.send('hello world');
 });
