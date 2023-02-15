@@ -1,5 +1,7 @@
 import React, {useState,} from 'react';
 import axios from "axios";
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer, toast} from "react-toastify";
 
 const form = {
     margin: " 5% ",
@@ -50,6 +52,11 @@ const Form = () => {
     };
     const handleChangeOpinion = (e) => {
         setOpinion(e.target.value);
+    };
+    const showToastMessage = () => {
+        toast.success('Success Notification !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
     };
     return (
         <div className="Form">
@@ -107,7 +114,8 @@ const Form = () => {
                             {error.opinion && "here wrong"}
                         </div>
                         <div style={{display: "inline-block", margin: "5% 100%"}}>
-                            <button type="submit">Send</button>
+                            <button type="submit" onClick={showToastMessage}>Send</button>
+                            <ToastContainer />
                         </div>
                     </form>
                 </div>
@@ -116,3 +124,16 @@ const Form = () => {
     )
 }
 export default Form;
+
+
+
+
+
+
+
+
+
+
+
+
+
