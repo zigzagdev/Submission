@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Card} from "@mui/material";
+import axios from "axios";
 
 const main = {
     flexDirection: "column",
@@ -31,50 +32,42 @@ const eachCard = {
     borderRadius: "20px",
     overflowWrap: "hidden",
     textOverflow: "ellipsis",
-    whitespace: "no-wrap",
     display: "inline-block",
     padding: "10%"
 }
 
 const fontStyle = {
     width: "100%",
-    whitespace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
     display: "inline-block",
 }
 
 const Top = () => {
+    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const res = await axios.get("http://localhost:3003");
+                setUser(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchUser();
+    }, []);
+    console.log(user);
     return (
         <div style={main}>
             <div style={opinion}>
                 <div style={totalOpinion}>
                     <div style={eachOpinion}>
-                        <Card style={eachCard}><strong style={{color: "black"}}></strong></Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>aa</Card>
+                        <Card style={eachCard}>
+                            <span style={{color: "black"}}>
+                                jjjjjjjjiii
+                            </span>
+                        </Card>
                     </div>
                     <div style={eachOpinion}>
                         <Card style={eachCard}>
@@ -87,6 +80,11 @@ const Top = () => {
                                 <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
                             </span>
                         </Card>
+                        <Card>
+                            {/*{user.map((eachUser) => (*/}
+                            {/*    <div>{eachUser.id}</div>*/}
+                            {/*))}*/}
+                        </Card>
                     </div>
                 </div>
             </div>
@@ -95,3 +93,9 @@ const Top = () => {
 };
 
 export default Top;
+
+
+
+
+
+
