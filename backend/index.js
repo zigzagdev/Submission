@@ -48,9 +48,9 @@ app.get("/:id", (req, res) => {
             console.log(err);
         } else {
             res.send(result);
+            console.log('suc');
         }
     });
-    console.log(res.send);
 });
 
 app.put("/update/:id", (req, res) => {
