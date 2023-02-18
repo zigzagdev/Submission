@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import {Card} from "@mui/material";
 import axios from "axios";
 
@@ -57,18 +58,19 @@ const Top = () => {
         };
         fetchUser();
     }, []);
-    console.log(user);
     return (
         <div style={main}>
             <div style={opinion}>
                 <div style={totalOpinion}>
                     {user.map((eachUser) => (
                         <div style={eachOpinion}>
-                            <Card style={eachCard}>
-                                <span style={fontStyle}>
-                                    <form>{eachUser.id}</form>
-                                </span>
-                            </Card>
+                            <Link to={`${eachUser.id}`}>
+                                <Card style={eachCard}>
+                                    <span style={fontStyle}>
+                                        {eachUser.name}
+                                    </span>
+                                </Card>
+                            </Link>
                         </div>
                     ))}
                 </div>

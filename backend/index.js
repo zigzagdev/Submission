@@ -39,24 +39,37 @@ app.get("/", (req, res) => {
         }
     });
 });
-//
-// app.put("/update", (req, res) => {
-//     const id = req.body.id;
-//     const name = req.body.name;
-//     const email = req.body.email;
-//
-//     db.query(
-//         "UPDATE react SET name = ?, email = ? WHERE id = ?",
-//         [name, id, email],
-//         (err, result) => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.send(result);
-//             }
-//         }
-//     );
-// });
+
+app.get("/:id", (req, res) => {
+    const id = req.params.id;
+    const q = "SELECT * FROM user WHERE id = ?";
+    db.query(q, [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+    console.log(res.send);
+});
+
+app.put("/update/:id", (req, res) => {
+    const id = req.params.id;
+    const name = req.body.name;
+    const email = req.body.email;
+
+    db.query(
+        "UPDATE react SET name = ?, email = ? WHERE id = ?",
+        [name, id, email],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
 //
 // app.delete("/delete/:id", (req, res) => {
 //     const id = req.params.id;
