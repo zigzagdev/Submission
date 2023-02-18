@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, BrowserRouter, Route } from 'react-router-dom';
 import Top from '../components/Top';
 import Form from '../components/Form';
@@ -16,5 +16,4 @@ const Main = () => {
         </div>
     );
 };
-
 export default Main;
