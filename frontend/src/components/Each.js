@@ -18,7 +18,6 @@ console.log(id);
         };
         fetchUser()
     }, [id]);
-    console.log(user)
     return (
         <div>
             {user[0].email}
