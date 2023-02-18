@@ -62,30 +62,15 @@ const Top = () => {
         <div style={main}>
             <div style={opinion}>
                 <div style={totalOpinion}>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>
-                            <span style={{color: "black"}}>
-                                jjjjjjjjiii
-                            </span>
-                        </Card>
-                    </div>
-                    <div style={eachOpinion}>
-                        <Card style={eachCard}>
-                            <span style={fontStyle}>
-                                dgsdgadfsdfsdffsg<br/>sbbbbbfdasdasfsdfsdafsdfdsfdsfsdfdsfdsfsdydydyydyydyyyydyydyysdfsadfsadyf<br/>dysfdyfyasfsdfsdfdsfsafsdfsafsdfasdfsadfdsafsadyfsyafysadfysdfsdfysyyfdsfyfsadfadsfasfsafsdfdsfsadfsadfasdfa
-                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
-                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
-                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
-                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
-                                <br/>dsfasdfdsfarrrrrrrayadgkkkkkkkknnnnn
-                            </span>
-                        </Card>
-                        <Card>
-                            {/*{user.map((eachUser) => (*/}
-                            {/*    <div>{eachUser.id}</div>*/}
-                            {/*))}*/}
-                        </Card>
-                    </div>
+                    {user.map((eachUser) => (
+                        <div style={eachOpinion}>
+                            <Card style={eachCard}>
+                                <span style={fontStyle}>
+                                    {eachUser.id}
+                                </span>
+                            </Card>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
