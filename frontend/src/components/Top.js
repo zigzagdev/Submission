@@ -66,7 +66,7 @@ const Top = () => {
                         <div style={eachOpinion}>
                             <Card style={eachCard}>
                                 <span style={fontStyle}>
-                                    {eachUser.id}
+                                    <form>{eachUser.id}</form>
                                 </span>
                             </Card>
                         </div>
