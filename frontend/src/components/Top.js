@@ -58,18 +58,19 @@ const Top = () => {
         };
         fetchUser();
     }, []);
-    console.log(user);
     return (
         <div style={main}>
             <div style={opinion}>
                 <div style={totalOpinion}>
                     {user.map((eachUser) => (
                         <div style={eachOpinion}>
-                            <Card style={eachCard}>
-                                <span style={fontStyle}>
-                                    <Link to={`${eachUser.id}`}>{eachUser.name}</Link>
-                                </span>
-                            </Card>
+                            <Link to={`${eachUser.id}`}>
+                                <Card style={eachCard}>
+                                    <span style={fontStyle}>
+                                        {eachUser.name}
+                                    </span>
+                                </Card>
+                            </Link>
                         </div>
                     ))}
                 </div>
