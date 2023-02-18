@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import {Card} from "@mui/material";
 import axios from "axios";
 
@@ -66,7 +67,7 @@ const Top = () => {
                         <div style={eachOpinion}>
                             <Card style={eachCard}>
                                 <span style={fontStyle}>
-                                    <form>{eachUser.id}</form>
+                                    <Link to={`${eachUser.id}`}>{eachUser.name}</Link>
                                 </span>
                             </Card>
                         </div>
