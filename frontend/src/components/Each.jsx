@@ -68,7 +68,7 @@ const Each = () => {
                         )
                     } else {
                         return (
-                            <div style={{margin: "1%"}}>
+                            <div style={{margin: "5% 8%", display: "flex"}}>
                                 <span style={{fontSize: "25px"}}>No records are here ...</span>
                             </div>
                         )
