@@ -62,7 +62,6 @@ const Each = () => {
                                                 <span style={{fontSize: "25px"}}>{eachUser.opinion}</span>
                                             </div>
                                         </div>
-
                                     </Fragment>
                                 ))}
                             </div>
