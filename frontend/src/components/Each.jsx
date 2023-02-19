@@ -1,11 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const outFrame = {
-    margin: "9% 40%",
+    margin: "7% 34%",
     backgroundColor: "snow",
-    padding: "1% 2%"
+    padding: "1% 2%",
+
+}
+
+const suc = {
+    margin: "3% 1%",
+}
+
+const err = {
+
 }
 
 
@@ -20,25 +29,48 @@ const Each = () => {
         }
         getUser()
     }, [])
-    console.log(user)
     return (
         <div style={outFrame}>
             {
                 (() => {
                     if (user.length != 0) {
                         return (
-                            <div>
+                            <div style={suc}>
                                 {user.map((eachUser) => (
-                                    <div>
-                                        {eachUser.name}
-                                    </div>
+                                    <Fragment>
+                                        <div style={{margin: "5% 8%", display: "flex"}}>
+                                            <div style={{width: "30%"}}>
+                                                <label htmlFor="name" style={{fontSize: "25px"}}>Name:</label>
+                                            </div>
+                                            <div style={{margin: "0 6%"}}>
+                                                <span style={{fontSize: "25px"}}>{eachUser.name}</span>
+                                            </div>
+                                        </div>
+                                        <div style={{margin: "5% 8%", display: "flex"}}>
+                                            <div style={{width: "30%"}}>
+                                                <label htmlFor="name" style={{fontSize: "25px"}}>Email:</label>
+                                            </div>
+                                            <div style={{margin: "0 6%"}}>
+                                                <span style={{fontSize: "25px"}}>{eachUser.email}</span>
+                                            </div>
+                                        </div>
+                                        <div style={{margin: "5% 8%", display: "flex"}}>
+                                            <div style={{width: "30%"}}>
+                                                <label htmlFor="name" style={{fontSize: "25px"}}>Opinion:</label>
+                                            </div>
+                                            <div style={{margin: "0 6%"}}>
+                                                <span style={{fontSize: "25px"}}>{eachUser.opinion}</span>
+                                            </div>
+                                        </div>
+
+                                    </Fragment>
                                 ))}
                             </div>
                         )
                     } else {
                         return (
-                            <div>
-                                No records are selected here .....
+                            <div style={{margin: "1%"}}>
+                                <span style={{fontSize: "25px"}}>No records are here ...</span>
                             </div>
                         )
                     }
