@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import { useParams, Link } from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import axios from "axios";
 import {Button} from "@mui/material";
 
@@ -14,9 +14,7 @@ const suc = {
     margin: "3% 1%",
 }
 
-const err = {
-
-}
+const err = {}
 
 const Each = () => {
     const [user, setUser] = useState([]);
@@ -59,7 +57,9 @@ const Each = () => {
                                                 <label htmlFor="name" style={{fontSize: "25px"}}>Opinion:</label>
                                             </div>
                                             <div style={{margin: "0 6%"}}>
-                                                <span style={{fontSize: "25px", wordBreak: "break-word"}}>{eachUser.opinion}</span>
+                                                <span style={{fontSize: "25px", wordBreak: "break-word"}}>
+                                                    {eachUser.opinion}
+                                                </span>
                                             </div>
                                         </div>
                                         <div style={{margin: "5% 15%", display: "flex"}}>
