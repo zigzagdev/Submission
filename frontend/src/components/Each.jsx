@@ -2,6 +2,13 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const outFrame = {
+    margin: "9% 40%",
+    backgroundColor: "snow",
+    padding: "1% 2%"
+}
+
+
 const Each = () => {
     const [user, setUser] = useState([]);
     const {id} = useParams();
@@ -15,7 +22,7 @@ const Each = () => {
     }, [])
     console.log(user)
     return (
-        <div>
+        <div style={outFrame}>
             {
                 (() => {
                     if (user.length != 0) {
@@ -23,7 +30,7 @@ const Each = () => {
                             <div>
                                 {user.map((eachUser) => (
                                     <div>
-                                        {eachUser.password}
+                                        {eachUser.name}
                                     </div>
                                 ))}
                             </div>
