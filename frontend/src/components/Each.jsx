@@ -42,4 +42,3 @@ const Each = () => {
 
 }
 export default Each;
-
