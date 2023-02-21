@@ -20,7 +20,7 @@ const Update = () => {
       setUsers(newUser);
     };
 
-    const handleSubmit = async (e,index) => {
+    const handleSubmit = async (e, index) => {
         e.preventDefault();
         try {
             await axios.put(`http://localhost:3003/update/${id}`, users[index]);
@@ -77,7 +77,7 @@ const Update = () => {
                         <textarea
                             id="opinion"
                             name="opinion"
-                            defaultValue={eachData.opinion}
+                            value={users[i].opinion}
                             onChange={(e) =>handleChange(e, i)}
                             style={opinions}
                         />
