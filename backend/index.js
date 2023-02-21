@@ -45,25 +45,24 @@ app.get("/:id", (req, res) => {
     const q = "SELECT * FROM user WHERE id = ?";
     db.query(q, [id], (err, result) => {
         if (err) {
-            console.log(err);
         } else {
             res.send(result);
-            console.log('suc');
         }
     });
 });
 
 app.put("/update/:id", (req, res) => {
-    const id = req.params.id;
-    const name = req.body.name;
-    const email = req.body.email;
+    const values = [
+        req.body.name,
+        req.body.email,
+        req.body.opinion
+    ];
+    const id = req.params.id
+    const q = "UPDATE user SET name = ?, email = ?, opinion = ? WHERE id = ?";
 
-    db.query(
-        "UPDATE react SET name = ?, email = ? WHERE id = ?",
-        [name, id, email],
+    db.query(q, [...values, id],
         (err, result) => {
             if (err) {
-                console.log(err);
             } else {
                 res.send(result);
             }
