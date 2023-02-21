@@ -14,7 +14,7 @@ const Update = () => {
     const {id} = useParams();
     const navGate = useNavigate();
 
-    const handleChange = (e,index) => {
+    const handleChange = (e, index) => {
       const newUser =[...users]
       newUser[index][e.target.name] = e.target.value
       setUsers(newUser);
@@ -31,23 +31,15 @@ const Update = () => {
     };
 
     useEffect(() => {
-        const getUser = async () => {
-            // const res = await axios.get(`http://localhost:3003/${id}`);
-            setUsers([{
-              name: "name1",
-              email: "",
-              opinion: ""
-            },{
-              name: "name2",
-              email: "",
-              opinion: ""
-            }])
+        const getUsers = async () => {
+            const res = await axios.get(`http://localhost:3003/${id}`);
+            setUsers(res.data)
         }
-        getUser()
-    }, [id])
+        getUsers()
+    }, [])
     return (
         <div>
-            {users.map((eachData,i) => (
+            {users.map((eachData, i) => (
             <Fragment>
                 <div style={{margin: "5% 8%", display: "flex"}}>
                     <div style={{width: "30%"}}>
@@ -59,7 +51,7 @@ const Update = () => {
                             placeholder="Name"
                             name="name"
                             value={users[i].name}
-                            onChange={(e) =>handleChange(e,i)}
+                            onChange={(e) =>handleChange(e, i)}
                         />
                     </div>
                 </div>
@@ -73,7 +65,7 @@ const Update = () => {
                             placeholder="Email"
                             name="email"
                             value={users[i].email}
-                            onChange={(e) =>handleChange(e,i)}
+                            onChange={(e) =>handleChange(e, i)}
                         />
                     </div>
                 </div>
@@ -86,7 +78,7 @@ const Update = () => {
                             id="opinion"
                             name="opinion"
                             defaultValue={eachData.opinion}
-                            onChange={(e) =>handleChange(e,i)}
+                            onChange={(e) =>handleChange(e, i)}
                             style={opinions}
                         />
                     </div>

@@ -7,7 +7,6 @@ const outFrame = {
     margin: "7% 34%",
     backgroundColor: "snow",
     padding: "1% 2%",
-
 }
 
 const suc = {
@@ -35,28 +34,28 @@ const Each = () => {
                         return (
                             <div style={suc}>
                                 {user.map((eachUser) => (
-                                    <Fragment>
-                                        <div style={{margin: "5% 8%", display: "flex"}}>
+                                    <Fragment style={{display: "flex"}}>
+                                        <div style={{margin: "5% 0", display: "flex"}}>
                                             <div style={{width: "30%"}}>
                                                 <label htmlFor="name" style={{fontSize: "25px"}}>Name:</label>
                                             </div>
-                                            <div style={{margin: "0 6%"}}>
+                                            <div style={{flex: 1}}>
                                                 <span style={{fontSize: "25px"}}>{eachUser.name}</span>
                                             </div>
                                         </div>
-                                        <div style={{margin: "5% 8%", display: "flex"}}>
+                                        <div style={{margin: "5% 0", display: "flex"}}>
                                             <div style={{width: "30%"}}>
                                                 <label htmlFor="name" style={{fontSize: "25px"}}>Email:</label>
                                             </div>
-                                            <div style={{margin: "0 6%"}}>
+                                            <div style={{flex: 1}}>
                                                 <span style={{fontSize: "25px"}}>{eachUser.email}</span>
                                             </div>
                                         </div>
-                                        <div style={{margin: "5% 8%", display: "flex"}}>
+                                        <div style={{margin: "5% 0", display: "flex"}}>
                                             <div style={{width: "30%"}}>
                                                 <label htmlFor="name" style={{fontSize: "25px"}}>Opinion:</label>
                                             </div>
-                                            <div style={{margin: "0 6%"}}>
+                                            <div style={{flex: 1}}>
                                                 <span style={{fontSize: "25px", wordBreak: "break-word"}}>
                                                     {eachUser.opinion}
                                                 </span>
