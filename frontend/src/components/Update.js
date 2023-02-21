@@ -9,25 +9,21 @@ const opinions = {
 }
 
 const Update = () => {
-    const [user, setUser] = useState([]);
-    const [data, setData] = useState({
-        name: "",
-        email: "",
-        opinion: ""
-    })
+    const [users, setUsers] = useState([]);
     const [error, setError] = useState(false)
     const {id} = useParams();
     const navGate = useNavigate();
 
-    const handleChange = (e) => {
-        setData((data) => ({ ...data, [e.target.name]: e.target.value }));
+    const handleChange = (e,index) => {
+      const newUser =[...users]
+      newUser[index][e.target.name] = e.target.value
+      setUsers(newUser);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e,index) => {
         e.preventDefault();
-        console.log(e)
         try {
-            await axios.put(`http://localhost:3003/update/${id}`, data);
+            await axios.put(`http://localhost:3003/update/${id}`, users[index]);
             navGate(`/${id}`);
         } catch (err) {
             setError(true)
@@ -36,14 +32,22 @@ const Update = () => {
 
     useEffect(() => {
         const getUser = async () => {
-            const res = await axios.get(`http://localhost:3003/${id}`);
-            setUser(res.data)
+            // const res = await axios.get(`http://localhost:3003/${id}`);
+            setUsers([{
+              name: "name1",
+              email: "",
+              opinion: ""
+            },{
+              name: "name2",
+              email: "",
+              opinion: ""
+            }])
         }
         getUser()
-    }, [])
+    }, [id])
     return (
         <div>
-            {user.map((eachData) => (
+            {users.map((eachData,i) => (
             <Fragment>
                 <div style={{margin: "5% 8%", display: "flex"}}>
                     <div style={{width: "30%"}}>
@@ -54,8 +58,8 @@ const Update = () => {
                             type="text"
                             placeholder="Name"
                             name="name"
-                            value={data.name}
-                            onChange={handleChange}
+                            value={users[i].name}
+                            onChange={(e) =>handleChange(e,i)}
                         />
                     </div>
                 </div>
@@ -68,8 +72,8 @@ const Update = () => {
                             type="text"
                             placeholder="Email"
                             name="email"
-                            value={data.email}
-                            onChange={handleChange}
+                            value={users[i].email}
+                            onChange={(e) =>handleChange(e,i)}
                         />
                     </div>
                 </div>
@@ -82,13 +86,13 @@ const Update = () => {
                             id="opinion"
                             name="opinion"
                             defaultValue={eachData.opinion}
-                            onChange={handleChange}
+                            onChange={(e) =>handleChange(e,i)}
                             style={opinions}
                         />
                     </div>
                 </div>
                 <div>
-                    <button type="submit" onClick={handleSubmit}>Send</button>
+                    <button type="submit" onClick={(e)=>handleSubmit(e,i)}>Send</button>
                 </div>
             </Fragment>
             ))}
