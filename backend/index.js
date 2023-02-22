@@ -13,6 +13,9 @@ const db = mysql.createConnection({
     database: "react",
 });
 
+app.listen(3003, () => {
+    console.log("Yey, your server is running on port 3003");
+
 app.post("/Form", (req, res) => {
     const name = req.body.name;
     const password = req.body.password;
@@ -80,7 +83,4 @@ app.put("/update/:id", (req, res) => {
 //         }
 //     });
 // });
-
-app.listen(3003, () => {
-    console.log("Yey, your server is running on port 3003");
 });

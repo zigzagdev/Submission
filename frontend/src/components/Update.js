@@ -1,7 +1,7 @@
 import React, {useEffect, useState, Fragment} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
-
+import {Button} from "@mui/material";
 
 const opinions = {
     width: "180%",
@@ -83,8 +83,23 @@ const Update = () => {
                         />
                     </div>
                 </div>
-                <div>
-                    <button type="submit" onClick={(e)=>handleSubmit(e,i)}>Send</button>
+                <div style={{display: "flex"}}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        style={{marginLeft: "45%"}}
+                        onClick={(e)=>handleSubmit(e, i)}>
+                        Send
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        type="submit"
+                        style={{marginLeft: "2%"}}
+                        onClick={() => navGate(`/${id}`)}>
+                        Back
+                    </Button>
                 </div>
             </Fragment>
             ))}
