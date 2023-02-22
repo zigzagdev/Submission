@@ -83,8 +83,8 @@ const Update = () => {
                         />
                     </div>
                 </div>
-                <div>
-                    <button type="submit" onClick={(e)=>handleSubmit(e,i)}>Send</button>
+                <div style={{margin: "0 50%"}}>
+                    <button type="submit" onClick={(e)=>handleSubmit(e, i)}>Send</button>
                 </div>
             </Fragment>
             ))}
