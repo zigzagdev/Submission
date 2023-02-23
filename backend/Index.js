@@ -65,7 +65,9 @@ app.listen(3003, () => {
 
         db.query(q, [...values, id],
             (err, result) => {
+                console.log('Some error is here ..', err)
                 if (err) {
+                    console.log("update was failed", err)
                 } else {
                     res.send(result);
                 }
