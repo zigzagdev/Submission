@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import {useParams, Link} from "react-router-dom";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {Button} from "@mui/material";
 
@@ -13,11 +13,20 @@ const suc = {
     margin: "3% 1%",
 }
 
-const err = {}
-
 const Each = () => {
     const [user, setUser] = useState([]);
+    const [err, setErr] = useState('');
     const {id} = useParams();
+    const navGate = useNavigate();
+
+    const handleSubmit = async () => {
+        try {
+            await axios.delete(`http://localhost:3003/${id}`);
+            navGate('/');
+        } catch (err) {
+            setErr('something is wrong');
+        }
+    };
 
     useEffect(() => {
         const getUser = async () => {
@@ -63,7 +72,10 @@ const Each = () => {
                                         </div>
                                         <div style={{margin: "5% 15%", display: "flex"}}>
                                             <div style={{width: "40%", margin: "0 5%"}}>
-                                                <Button variant="contained" color="secondary">
+                                                <Button variant="contained"
+                                                        color="secondary"
+                                                        onClick={(e)=>handleSubmit(e)}
+                                                >
                                                     Delete
                                                 </Button>
                                             </div>
