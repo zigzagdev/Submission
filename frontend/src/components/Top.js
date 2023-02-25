@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Card} from "@mui/material";
+import Pagination from '../animation/Pagination';
 import axios from "axios";
 
 const main = {
@@ -45,24 +46,35 @@ const fontStyle = {
 }
 
 const Top = () => {
-    const [user, setUser] = useState([]);
+    const [coinsData, setCoinsData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(9);
+    const [totalPage, setTotalPage] = useState(1);
 
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await axios.get("http://localhost:3003");
-                setUser(res.data);
+                const res = await axios.get(`http://localhost:3003`);
+                setCoinsData(res.data);
+                setTotalPage(Math.ceil(res.data.length/postsPerPage));
             } catch (err) {
                 console.log(err);
             }
         };
-        fetchUser();
+        fetchUser()
     }, []);
     return (
         <div style={main}>
             <div style={opinion}>
+                {currentPage}/{totalPage}
+                <Pagination
+                    totalRecords={coinsData.length}
+                    postsPerPage={postsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                />
                 <div style={totalOpinion}>
-                    {user.map((eachUser) => (
+                    {coinsData.map((eachUser, i) => (
                         <div style={eachOpinion}>
                             <Link to={`${eachUser.id}`}>
                                 <Card style={eachCard}>
@@ -74,6 +86,12 @@ const Top = () => {
                         </div>
                     ))}
                 </div>
+                <Pagination
+                    totalRecords={coinsData.length}
+                    postsPerPage={postsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                />
             </div>
         </div>
     );
