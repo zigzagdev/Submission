@@ -46,7 +46,7 @@ const fontStyle = {
 }
 
 const Top = () => {
-    const [coinsData, setCoinsData] = useState([]);
+    const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(9);
     const [totalPage, setTotalPage] = useState(1);
@@ -55,7 +55,7 @@ const Top = () => {
         const fetchUser = async () => {
             try {
                 const res = await axios.get(`http://localhost:3003`);
-                setCoinsData(res.data);
+                setData(res.data);
                 setTotalPage(Math.ceil(res.data.length/postsPerPage));
             } catch (err) {
                 console.log(err);
@@ -63,18 +63,23 @@ const Top = () => {
         };
         fetchUser()
     }, []);
+    const lastRecord = currentPage * postsPerPage;
+    const firstRecord = lastRecord - postsPerPage;
+    const currentRecords = data.slice(firstRecord, lastRecord);
+console.log(currentRecords)
     return (
         <div style={main}>
             <div style={opinion}>
                 {currentPage}/{totalPage}
                 <Pagination
-                    totalRecords={coinsData.length}
+                    totalRecords={data.length}
                     postsPerPage={postsPerPage}
                     setCurrentPage={setCurrentPage}
                     currentPage={currentPage}
+                    currentRecords={currentRecords}
                 />
                 <div style={totalOpinion}>
-                    {coinsData.map((eachUser, i) => (
+                    {currentRecords.map((eachUser, i) => (
                         <div style={eachOpinion}>
                             <Link to={`${eachUser.id}`}>
                                 <Card style={eachCard}>
@@ -86,11 +91,13 @@ const Top = () => {
                         </div>
                     ))}
                 </div>
+                {currentPage}/{totalPage}
                 <Pagination
-                    totalRecords={coinsData.length}
+                    totalRecords={data.length}
                     postsPerPage={postsPerPage}
                     setCurrentPage={setCurrentPage}
                     currentPage={currentPage}
+                    currentRecords={currentRecords}
                 />
             </div>
         </div>
