@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
 import "./Pagination.css";
-import {Button, Card} from "@mui/material";
-import {Link, useNavigate} from "react-router-dom";
+import {Button} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const main = {
@@ -38,22 +38,16 @@ const eachCard = {
     padding: "10%"
 }
 
-const fontStyle = {
-    width: "100%",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    display: "inline-block",
-}
-
 
 const Pagination = ({
                         totalRecords,
                         postsPerPage,
                         setCurrentPage,
-                        currentRecords,
+                        currentPage
                     }) => {
     const [data, setData] = useState([]);
     const [totalPage, setTotalPage] = useState(1);
+    const firstPage = 1;
 
     let page = [];
     for (let i = 1; i <= Math.ceil(totalRecords / postsPerPage); i++) {
@@ -65,7 +59,7 @@ const Pagination = ({
             try {
                 const res = await axios.get(`http://localhost:3003`);
                 setData(res.data);
-                setTotalPage(Math.ceil(res.data.length/postsPerPage));
+                setTotalPage(Math.ceil(res.data.length / postsPerPage));
             } catch (err) {
                 console.log(err);
             }
@@ -74,27 +68,44 @@ const Pagination = ({
     }, []);
     const nav = useNavigate();
 
+    function decrement() {
+        setCurrentPage(currentPage - 1);
+    }
+    function increment() {
+        setCurrentPage(currentPage + 1);
+    }
+
     return (
         <div className='pagination'>
-            <Fragment>
-                <div>
-                    {page.map((page, index) => {
-                        return (
-                            <Button
-                                key={index}
-                                color="primary"
-                                variant="contained"
-                                onClick={() => {
-                                    setCurrentPage(page)
-                                    nav(`/Page/${page}`)
-                                }}
-                            >
-                                {page}
-                            </Button>
-                        );
-                    })}
-                </div>
-            </Fragment>
+            <Button
+                disabled={currentPage ===  firstPage? true : false}
+                onClick={decrement}
+                color="primary"
+            >
+                PREVIOUS
+            </Button>
+            {page.map((page, index) => {
+                return (
+                        <Button
+                            key={index}
+                            color="primary"
+                            variant="contained"
+                            onClick={() => {
+                                setCurrentPage(page)
+                                nav(`/Page/${page}`)
+                            }}
+                        >
+                            {page}
+                        </Button>
+                );
+            })}
+            <Button
+                disabled={currentPage === totalPage ? true : false}
+                onClick={increment}
+                color="warning"
+            >
+                NEXT
+            </Button>
         </div>
     );
 };
