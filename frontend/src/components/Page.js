@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import react, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {Card} from "@mui/material";
-import Pagination from '../animation/Pagination';
 import axios from "axios";
+import {Button, Card} from "@mui/material";
+import React from "react";
+import "../animation/Pagination.css";
+import Pagination from "../animation/Pagination";
 
 const main = {
     flexDirection: "column",
@@ -45,34 +47,49 @@ const fontStyle = {
     display: "inline-block",
 }
 
-const Top = () => {
-    const [data, setData] = useState([]);
+function Page(
+    totalRecords,
+) {
+    const [array, setArray] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(9);
     const [totalPage, setTotalPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(9);
+    const firstPage = 1;
+    const nav = useNavigate();
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const fetchData = async () => {
             try {
                 const res = await axios.get(`http://localhost:3003`);
-                setData(res.data);
+                setArray(res.data);
                 setTotalPage(Math.ceil(res.data.length/postsPerPage));
             } catch (err) {
                 console.log(err);
             }
         };
-        fetchUser()
+        fetchData()
     }, []);
+
+    let page = [];
+    for (let i = 1; i <= Math.ceil(array.data / postsPerPage); i++) {
+        page.push(i);
+    }
     const lastRecord = currentPage * postsPerPage;
     const firstRecord = lastRecord - postsPerPage;
-    const currentRecords = data.slice(firstRecord, lastRecord);
-console.log(currentRecords)
+    const currentRecords = array.slice(firstRecord, lastRecord);
+
+    function decrement() {
+        setCurrentPage(currentPage - 1);
+    }
+    function increment() {
+        setCurrentPage(currentPage + 1);
+    }
     return (
         <div style={main}>
             <div style={opinion}>
                 {currentPage}/{totalPage}
                 <Pagination
-                    totalRecords={data.length}
+                    totalRecords={array.length}
                     postsPerPage={postsPerPage}
                     setCurrentPage={setCurrentPage}
                     currentPage={currentPage}
@@ -93,7 +110,7 @@ console.log(currentRecords)
                 </div>
                 {currentPage}/{totalPage}
                 <Pagination
-                    totalRecords={data.length}
+                    totalRecords={array.length}
                     postsPerPage={postsPerPage}
                     setCurrentPage={setCurrentPage}
                     currentPage={currentPage}
@@ -104,4 +121,4 @@ console.log(currentRecords)
     );
 };
 
-export default Top;
+export default Page;

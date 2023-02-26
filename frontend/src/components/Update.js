@@ -23,7 +23,7 @@ const Update = () => {
     const handleSubmit = async (e, index) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3003/update/${id}`, users[index]);
+            await axios.put(`http://localhost:3003/Update/${id}`, users[index]);
             navGate(`/${id}`);
         } catch (err) {
             setError(true)
@@ -97,7 +97,7 @@ const Update = () => {
                         color="secondary"
                         type="submit"
                         style={{marginLeft: "2%"}}
-                        onClick={() => navGate(`/${id}`)}>
+                        onClick={() => {navGate(`/${id}`)}}>
                         Back
                     </Button>
                 </div>
