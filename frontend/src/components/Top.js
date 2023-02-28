@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Card} from "@mui/material";
 import Pagination from '../animation/Pagination';
 import axios from "axios";
@@ -66,7 +66,7 @@ const Top = () => {
     const lastRecord = currentPage * postsPerPage;
     const firstRecord = lastRecord - postsPerPage;
     const currentRecords = data.slice(firstRecord, lastRecord);
-console.log(currentRecords)
+
     return (
         <div style={main}>
             <div style={opinion}>
