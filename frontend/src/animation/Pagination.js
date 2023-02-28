@@ -1,43 +1,8 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Pagination.css";
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-
-const main = {
-    flexDirection: "column",
-    height: "100%",
-    margin: 0,
-    padding: 0
-}
-
-const opinion = {
-    margin: "4% 12%",
-    flexWrap: "wrap",
-}
-
-const totalOpinion = {
-    display: "flex",
-    margin: "2% 3%",
-    flexWrap: "wrap",
-    justifyContent: "spaceEvenly",
-}
-
-const eachOpinion = {
-    margin: "4% 4%",
-}
-
-const eachCard = {
-    backgroundColor: "snow",
-    width: "250px",
-    height: "170px",
-    borderRadius: "20px",
-    overflowWrap: "hidden",
-    textOverflow: "ellipsis",
-    display: "inline-block",
-    padding: "10%"
-}
-
 
 const Pagination = ({
                         totalRecords,
@@ -71,6 +36,7 @@ const Pagination = ({
     function decrement() {
         setCurrentPage(currentPage - 1);
     }
+
     function increment() {
         setCurrentPage(currentPage + 1);
     }
@@ -78,25 +44,26 @@ const Pagination = ({
     return (
         <div className='pagination'>
             <Button
-                disabled={currentPage ===  firstPage? true : false}
+                disabled={currentPage === firstPage ? true : false}
                 onClick={decrement}
                 color="primary"
+                selectedPageRel={currentPage === firstPage ? true : false}
             >
                 PREVIOUS
             </Button>
             {page.map((page, index) => {
                 return (
-                        <Button
-                            key={index}
-                            color="primary"
-                            variant="contained"
-                            onClick={() => {
-                                setCurrentPage(page)
-                                nav(`/Page/${page}`)
-                            }}
-                        >
-                            {page}
-                        </Button>
+                    <Button
+                        key={index}
+                        color="primary"
+                        variant="contained"
+                        onClick={() => {
+                            setCurrentPage(page)
+                            nav(`/Page/${page}`)
+                        }}
+                    >
+                        {page}
+                    </Button>
                 );
             })}
             <Button
