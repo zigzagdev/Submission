@@ -82,19 +82,3 @@ export default Main;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
