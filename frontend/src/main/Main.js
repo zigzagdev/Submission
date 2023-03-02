@@ -19,6 +19,7 @@ const Main = () => {
                     <Route path='/Update/:id' element={<Update/>}/>
                     <Route path='/' element={<Pagination/>}/>
                     <Route path='/Page/:page' element={<Page/>}/>
+                    <Route path='/Page/:id/:id' element={<Each/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
