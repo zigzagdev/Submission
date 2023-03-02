@@ -68,17 +68,3 @@ export default Main;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
