@@ -30,18 +30,3 @@ export default Main;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
