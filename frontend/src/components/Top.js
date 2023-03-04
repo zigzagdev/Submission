@@ -74,17 +74,17 @@ const Top = () => {
     return (
         <div style={main}>
             <div style={opinion}>
-                    <strong style={{fontSize: "20px", display:"inline-block", marginTop: "3%"}}>
-                        {currentPage}/{totalPage}Page
-                    </strong>
-                    <Pagination
-                        totalRecords={data.length}
-                        postsPerPage={postsPerPage}
-                        setCurrentPage={setCurrentPage}
-                        currentPage={currentPage}
-                        currentRecords={currentRecords}
-                        style={{display: "flex"}}
-                    />
+                <strong style={{fontSize: "20px", display: "inline-block", marginTop: "3%"}}>
+                    {currentPage}/{totalPage}Page
+                </strong>
+                <Pagination
+                    totalRecords={data.length}
+                    postsPerPage={postsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                    currentRecords={currentRecords}
+                    style={{display: "flex"}}
+                />
                 <div style={totalOpinion}>
                     {currentRecords.map((eachUser, i) => (
                         <div style={eachOpinion}>
@@ -99,7 +99,9 @@ const Top = () => {
                     ))}
                 </div>
                 <div style={paginationLine}>
-                    {currentPage}/{totalPage}
+                    <strong style={{fontSize: "20px", display: "inline-block", marginTop: "3%"}}>
+                        {currentPage}/{totalPage}Page
+                    </strong>
                     <Pagination
                         totalRecords={data.length}
                         postsPerPage={postsPerPage}
