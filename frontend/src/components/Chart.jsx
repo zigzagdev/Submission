@@ -11,13 +11,13 @@ const Chart = () => {
                 data: [4, 25, 1, 23, 55, 33, 10, 23, 19, 55, 44, 8],
                 backgroundColor: ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Black',
                     'Gray', 'Orange', 'Brown', 'DarkBlue', 'LightGreen'
-                ]
+                ],
             }
         ]
     }
     return (
         <div>
-            <Bar data={data}></Bar>
+            <Bar data={data} style={{margin: '7% 20% 5% 20%'}}></Bar>
         </div>
     );
 };

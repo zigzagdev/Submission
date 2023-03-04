@@ -6,6 +6,7 @@ import Each from '../components/Each';
 import Update from '../components/Update';
 import Pagination from "../animation/Pagination";
 import Page from "../components/Page";
+import Chart from "../components/Chart";
 
 
 const Main = () => {
@@ -20,6 +21,7 @@ const Main = () => {
                     <Route path='/' element={<Pagination/>}/>
                     <Route path='/Page/:page' element={<Page/>}/>
                     <Route path='/Page/:page/:id' element={<Each/>}/>
+                    <Route path='/Chart' element={<Chart/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
