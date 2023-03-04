@@ -44,6 +44,11 @@ const fontStyle = {
     display: "inline-block",
 }
 
+const paginationLine = {
+    marginTop: "8%",
+
+}
+
 const Top = () => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -69,14 +74,17 @@ const Top = () => {
     return (
         <div style={main}>
             <div style={opinion}>
-                {currentPage}/{totalPage}
-                <Pagination
-                    totalRecords={data.length}
-                    postsPerPage={postsPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                    currentRecords={currentRecords}
-                />
+                    <strong style={{fontSize: "20px", display:"inline-block", marginTop: "3%"}}>
+                        {currentPage}/{totalPage}Page
+                    </strong>
+                    <Pagination
+                        totalRecords={data.length}
+                        postsPerPage={postsPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                        currentRecords={currentRecords}
+                        style={{display: "flex"}}
+                    />
                 <div style={totalOpinion}>
                     {currentRecords.map((eachUser, i) => (
                         <div style={eachOpinion}>
@@ -90,14 +98,16 @@ const Top = () => {
                         </div>
                     ))}
                 </div>
-                {currentPage}/{totalPage}
-                <Pagination
-                    totalRecords={data.length}
-                    postsPerPage={postsPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                    currentRecords={currentRecords}
-                />
+                <div style={paginationLine}>
+                    {currentPage}/{totalPage}
+                    <Pagination
+                        totalRecords={data.length}
+                        postsPerPage={postsPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                        currentRecords={currentRecords}
+                    />
+                </div>
             </div>
         </div>
     );
