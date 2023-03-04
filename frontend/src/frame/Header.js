@@ -29,7 +29,7 @@ const title = {
 
 const font = {
     fontSize: "30px",
-    color: "gray"
+    color: "gray",
 }
 
 const Header = () => {
@@ -37,18 +37,20 @@ const Header = () => {
         <div style={outline}>
             <div style={sameLine}>
                 <div style={title}>
-                    <strong style={font}>ReactForm</strong>
+                    <a href="/Form" style={{textDecoration: "none"}}>
+                        <strong style={font}>ReactForm</strong>
+                    </a>
                 </div>
             </div>
             <div style={headerSame}>
                 <div style={right2}>
-                    <Button variant="contained" href="../" color="success">Top</Button>
+                    <Button variant="contained" href="/" color="success">Top</Button>
                 </div>
                 <div style={right2}>
-                    <Button variant="contained" href="../Form" color="info">Form</Button>
+                    <Button variant="contained" href="/Form" color="info">Form</Button>
                 </div>
                 <div style={right2}>
-                    <Button variant="contained" href="../Question" color="secondary">QuestionIndex</Button>
+                    <Button variant="contained" href="/Question" color="secondary">QuestionIndex</Button>
                 </div>
             </div>
         </div>
@@ -56,3 +58,106 @@ const Header = () => {
 }
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
