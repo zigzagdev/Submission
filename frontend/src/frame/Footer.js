@@ -166,14 +166,3 @@ export default Footer;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
