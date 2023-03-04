@@ -1,18 +1,20 @@
 import React from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 const Chart = () => {
     const data = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
             {
                 label: 'Registered Records here.',
-                data: [4, 5, 1, 23, 55]
+                data: [4, 25, 1, 23, 55, 33, 10, 23, 19, 55, 44, 8],
+                backgroundColor: ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Black',
+                    'Gray', 'Orange', 'Brown', 'DarkBlue', 'LightGreen'
+                ]
             }
         ]
     }
-    console.log(data)
     return (
         <div>
             <Bar data={data}></Bar>
