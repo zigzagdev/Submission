@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
 import {Card} from "@mui/material";
 import Pagination from '../animation/Pagination';
 import axios from "axios";
@@ -56,7 +55,7 @@ const Top = () => {
             try {
                 const res = await axios.get(`http://localhost:3003`);
                 setData(res.data);
-                setTotalPage(Math.ceil(res.data.length/postsPerPage));
+                setTotalPage(Math.ceil(res.data.length / postsPerPage));
             } catch (err) {
                 console.log(err);
             }
@@ -81,13 +80,13 @@ const Top = () => {
                 <div style={totalOpinion}>
                     {currentRecords.map((eachUser, i) => (
                         <div style={eachOpinion}>
-                            <Link to={`${eachUser.id}`}>
+                            <a href={`/${eachUser.id}`}>
                                 <Card style={eachCard}>
                                     <span style={fontStyle}>
                                         {eachUser.name}
                                     </span>
                                 </Card>
-                            </Link>
+                            </a>
                         </div>
                     ))}
                 </div>

@@ -27,13 +27,19 @@ const Footer = () => {
         <div style={outline}>
             <div style={{margin: "20px 60px 23px auto"}}>
                 <div style={inner}>
-                    <p style={right1}>Top</p>
+                    <a href="/" style={{textDecoration: "none"}}>
+                        <strong style={right1}>Search</strong>
+                    </a>
                 </div>
                 <div style={inner}>
-                    <p style={right1}>Search</p>
+                    <a href="/" style={{textDecoration: "none"}}>
+                        <strong style={right1}>Top</strong>
+                    </a>
                 </div>
                 <div style={leftInner}>
-                    <p style={right1}>SNS</p>
+                    <a href="/" style={{textDecoration: "none"}}>
+                        <strong style={right1}>SNS</strong>
+                    </a>
                 </div>
             </div>
         </div>
