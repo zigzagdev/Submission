@@ -65,13 +65,3 @@ export default Footer;
 
 
 
-
-
-
-
-
-
-
-
-
-
