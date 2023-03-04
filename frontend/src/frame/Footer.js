@@ -137,10 +137,3 @@ export default Footer;
 
 
 
-
-
-
-
-
-
-
