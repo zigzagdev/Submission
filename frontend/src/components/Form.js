@@ -1,6 +1,7 @@
 import React, {useState,} from 'react';
 import axios from "axios";
 import Toast from '../animation/Toast';
+import {Button} from "@mui/material";
 
 const form = {
     margin: " 5% ",
@@ -108,7 +109,9 @@ const Form = () => {
                             {error.opinion && "here wrong"}
                         </div>
                         <div style={{display: "inline-block", margin: "5% 100%"}}>
-                            <Toast/>
+                            <Button onClick={handleSubmit} variant="contained" sx={"background-color: lightblue;"}>
+                                Send
+                            </Button>
                         </div>
                     </form>
                 </div>
