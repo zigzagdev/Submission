@@ -110,7 +110,7 @@ const Form = () => {
                         </div>
                         <div style={{display: "inline-block", margin: "5% 100%"}}>
                             <Button onClick={handleSubmit} variant="contained" sx={"background-color: lightblue;"}>
-                                Send
+                                <strong style={{color: "black"}}>Send</strong>
                             </Button>
                         </div>
                     </form>
