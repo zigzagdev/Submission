@@ -2,6 +2,8 @@ import React, {useState,} from 'react';
 import axios from "axios";
 import Toast from '../animation/Toast';
 import {Button} from "@mui/material";
+import {useNavigate} from "react-router-dom";
+import bcrypt from 'bcryptjs'
 
 const form = {
     margin: " 5% ",
@@ -25,18 +27,22 @@ const Form = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [opinion, setOpinion] = useState("");
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(false);
+    const UseNav = useNavigate();
+    const hashedPassword = bcrypt.hashSync(password);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await axios.post("http://localhost:3003/Form", {
-                name: name,
-                email: email,
-                password: password,
-                opinion: opinion
-            })
-        } catch (err) {
+                    name: name,
+                    email: email,
+                    password: hashedPassword,
+                    opinion: opinion
+                }
+            )
+            UseNav('/')
+        } catch (error) {
             setError(true)
         }
     };
@@ -64,7 +70,14 @@ const Form = () => {
                                 <label htmlFor="name">Name:</label>
                             </div>
                             <div style={{flex: 1}}>
-                                <input id="name" name="name" value={name} onChange={handleChangeName} style={inputs}/>
+                                <input
+                                    id="name"
+                                    name="name"
+                                    value={name}
+                                    onChange={handleChangeName}
+                                    style={inputs}
+                                    required
+                                />
                             </div>
                             {error.name && "here wrong"}
                         </div>
@@ -73,8 +86,13 @@ const Form = () => {
                                 <label htmlFor="email">Email:</label>
                             </div>
                             <div style={{flex: 1}}>
-                                <input id="email" name="email" value={email} onChange={handleChangeEmail}
-                                       style={inputs}/>
+                                <input id="email"
+                                       name="email"
+                                       value={email}
+                                       onChange={handleChangeEmail}
+                                       style={inputs}
+                                       required
+                                />
                             </div>
                             {error.email && "here wrong"}
                         </div>
@@ -90,6 +108,7 @@ const Form = () => {
                                     onChange={handleChangePassword}
                                     type="password"
                                     style={inputs}
+                                    required
                                 />
                             </div>
                             {error.password && "here wrong"}
@@ -104,6 +123,7 @@ const Form = () => {
                                       value={opinion}
                                       onChange={handleChangeOpinion}
                                       style={opinions}
+                                      required
                             />
                             </div>
                             {error.opinion && "here wrong"}
