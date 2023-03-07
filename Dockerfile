@@ -1,6 +1,6 @@
 FROM node:14-alpine AS development
 ENV NODE_ENV development
-WORKDIR /app
+WORKDIR frontend/src
 COPY frontend/package.json .
 COPY frontend/package-lock.json .
 RUN npm install .
