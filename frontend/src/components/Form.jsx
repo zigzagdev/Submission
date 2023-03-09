@@ -3,7 +3,8 @@ import axios from "axios";
 import Toast from '../animation/Toast';
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
+import { useForm } from "react-hook-form";
 
 const form = {
     margin: " 5% ",
@@ -31,8 +32,12 @@ const Form = () => {
     const UseNav = useNavigate();
     const hashedPassword = bcrypt.hashSync(password);
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (name.length < 5 || name.length > 100) {
+            setError(true)
+        }
         try {
             await axios.post("http://localhost:3003/Form", {
                     name: name,
@@ -41,7 +46,6 @@ const Form = () => {
                     opinion: opinion
                 }
             )
-            UseNav('/')
         } catch (error) {
             setError(true)
         }
@@ -79,8 +83,8 @@ const Form = () => {
                                     required
                                 />
                             </div>
-                            {error.name && "here wrong"}
                         </div>
+                        {error && "here wrong"}
                         <div style={{margin: "5% 0", display: "flex"}}>
                             <div style={{width: "30%"}}>
                                 <label htmlFor="email">Email:</label>
@@ -91,7 +95,6 @@ const Form = () => {
                                        value={email}
                                        onChange={handleChangeEmail}
                                        style={inputs}
-                                       required
                                 />
                             </div>
                             {error.email && "here wrong"}
@@ -140,3 +143,113 @@ const Form = () => {
     )
 }
 export default Form;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
