@@ -17,6 +17,13 @@ const inputs = {
     height: "30px"
 }
 
+const errorInputs = {
+    margin: "0 50%",
+    width: "180%",
+    height: "30px",
+    color: "red"
+}
+
 const opinions = {
     width: "180%",
     margin: "0 50%",
@@ -93,9 +100,9 @@ const Form = () => {
                                     style={inputs}
                                     required={error}
                                 />
+                                <div style={errorInputs}>{error && "here wrong"}</div>
                             </div>
                         </div>
-                        {error && "here wrong"}
                         <div style={{margin: "5% 0", display: "flex"}}>
                             <div style={{width: "30%"}}>
                                 <label htmlFor="email">Email:</label>
@@ -108,6 +115,7 @@ const Form = () => {
                                        style={inputs}
                                        required={true}
                                 />
+                                <div style={errorInputs}>{error && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -124,6 +132,7 @@ const Form = () => {
                                     style={inputs}
                                     required={true}
                                 />
+                                <div style={errorInputs}>{error && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -138,7 +147,7 @@ const Form = () => {
                                       style={opinions}
                                       required={true}
                             />
-                                {error && "here wrong"}
+                            <div style={errorInputs}>{error && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{display: "inline-block", margin: "5% 100%"}}>
