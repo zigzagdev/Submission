@@ -13,7 +13,6 @@ const Chart = () => {
             const res = await axios.get(`http://localhost:3003`);
             res.data.map(function (value) {
                 let date = new Date(value.updated_at)
-                console.log(date.getFullYear())
                 apiFetch.push(date.getMonth() + 1)
             });
             let eachMonth = apiFetch.reduce(function (prev, current) {
@@ -27,7 +26,7 @@ const Chart = () => {
                         {
                             label: 'Registered Records here.',
                             labelColors: 'black',
-                            data: [333, eachMonth[2], eachMonth[3], eachMonth[4], eachMonth[5], eachMonth[6]
+                            data: [eachMonth[1], eachMonth[2], eachMonth[3], eachMonth[4], eachMonth[5], eachMonth[6]
                                 , eachMonth[7], eachMonth[8], eachMonth[9], eachMonth[10], eachMonth[11], eachMonth[12]
                             ],
                             backgroundColor: ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Black',
