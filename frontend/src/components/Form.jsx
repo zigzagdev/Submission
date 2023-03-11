@@ -1,10 +1,8 @@
 import React, {useState,} from 'react';
 import axios from "axios";
-import Toast from '../animation/Toast';
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
-import { sha256, sha512 } from 'crypto-hash';
-import { useForm } from "react-hook-form";
+import {sha256} from 'crypto-hash';
 
 const form = {
     margin: " 5% ",
@@ -32,9 +30,13 @@ const opinions = {
 
 const Form = () => {
     const [email, setEmail] = useState("");
+    const [correctEmail, setCorrectEmail] = useState(false);
     const [password, setPassword] = useState("");
+    const [correctPass, setCorrectPass] = useState(false);
     const [name, setName] = useState("");
+    const [correctName, setCorrectName] = useState(false);
     const [opinion, setOpinion] = useState("");
+    const [correctOpinion, setCorrectOpinion] = useState(false);
     const inputHandler = (e) => {
         setOpinion(e.target.value);
     };
@@ -45,15 +47,19 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (name.length < 5 || name.length > 100) {
-            setError(true)
-            return ;
+            setCorrectName(true);
+            return;
         }
         if (!/^[a-zA-Z]+$/.test(name)) {
-            setError(true)
+            setCorrectName(true);
             return;
         }
         if (opinion.length < 5 || opinion.length > 1000) {
-            setError(true)
+            setCorrectOpinion(true);
+            return;
+        }
+        if (password.length < 8 || password.length >30) {
+            setCorrectPass(true)
             return;
         }
         try {
@@ -100,7 +106,7 @@ const Form = () => {
                                     style={inputs}
                                     required={error}
                                 />
-                                <div style={errorInputs}>{error && "here wrong"}</div>
+                                <div style={errorInputs}>{correctName && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -115,7 +121,7 @@ const Form = () => {
                                        style={inputs}
                                        required={true}
                                 />
-                                <div style={errorInputs}>{error && "here wrong"}</div>
+                                <div style={errorInputs}>{correctEmail && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -132,7 +138,7 @@ const Form = () => {
                                     style={inputs}
                                     required={true}
                                 />
-                                <div style={errorInputs}>{error && "here wrong"}</div>
+                                <div style={errorInputs}>{correctPass && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -147,7 +153,7 @@ const Form = () => {
                                       style={opinions}
                                       required={true}
                             />
-                            <div style={errorInputs}>{error && "here wrong"}</div>
+                                <div style={errorInputs}>{correctOpinion && "here wrong"}</div>
                             </div>
                         </div>
                         <div style={{display: "inline-block", margin: "5% 100%"}}>
