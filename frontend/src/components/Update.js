@@ -3,6 +3,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {Button} from "@mui/material";
 
+
 const opinions = {
     width: "180%",
     height: "100px"
@@ -22,7 +23,10 @@ const Update = () => {
 
     const handleSubmit = async (e, index) => {
         e.preventDefault();
-        try {
+        if (users[index].name < 5 ) {
+            setError(true)
+        }
+            try {
             await axios.put(`http://localhost:3003/Update/${id}`, users[index]);
             navGate(`/${id}`);
         } catch (err) {
