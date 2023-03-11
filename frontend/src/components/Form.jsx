@@ -3,7 +3,7 @@ import axios from "axios";
 import Toast from '../animation/Toast';
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
-import bcrypt from 'bcryptjs';
+import { sha256, sha512 } from 'crypto-hash';
 import { useForm } from "react-hook-form";
 
 const form = {
@@ -28,15 +28,26 @@ const Form = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [opinion, setOpinion] = useState("");
+    const inputHandler = (e) => {
+        setOpinion(e.target.value);
+    };
     const [error, setError] = useState(false);
     const UseNav = useNavigate();
-    const hashedPassword = bcrypt.hashSync(password);
-
-
+    const hashedPassword = sha256(password);
+    console.log(password)
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (name.length < 5 || name.length > 100) {
             setError(true)
+            return ;
+        }
+        if (!/^[a-zA-Z]+$/.test(name)) {
+            setError(true)
+            return;
+        }
+        if (opinion.length < 5 || opinion.length > 1000) {
+            setError(true)
+            return;
         }
         try {
             await axios.post("http://localhost:3003/Form", {
@@ -80,7 +91,7 @@ const Form = () => {
                                     value={name}
                                     onChange={handleChangeName}
                                     style={inputs}
-                                    required
+                                    required={error}
                                 />
                             </div>
                         </div>
@@ -95,9 +106,9 @@ const Form = () => {
                                        value={email}
                                        onChange={handleChangeEmail}
                                        style={inputs}
+                                       required={true}
                                 />
                             </div>
-                            {error.email && "here wrong"}
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
                             <div style={{width: "30%"}}>
@@ -111,10 +122,9 @@ const Form = () => {
                                     onChange={handleChangePassword}
                                     type="password"
                                     style={inputs}
-                                    required
+                                    required={true}
                                 />
                             </div>
-                            {error.password && "here wrong"}
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
                             <div style={{width: "30%"}}>
@@ -124,12 +134,12 @@ const Form = () => {
                             <textarea id="opinion"
                                       name="opinion"
                                       value={opinion}
-                                      onChange={handleChangeOpinion}
+                                      onChange={inputHandler}
                                       style={opinions}
-                                      required
+                                      required={true}
                             />
+                                {error && "here wrong"}
                             </div>
-                            {error.opinion && "here wrong"}
                         </div>
                         <div style={{display: "inline-block", margin: "5% 100%"}}>
                             <Button onClick={handleSubmit} variant="contained" sx={"background-color: lightblue;"}>
