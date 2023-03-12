@@ -18,7 +18,8 @@ const inputs = {
 
 const errorInputs = {
     color: "red",
-    flex: 1
+    flex: 1,
+    margin: "0 20px",
 }
 
 const opinions = {
@@ -34,21 +35,27 @@ const initialValues = {
     opinion: ''
 }
 
+
 const onSubmit = (values) => {
-    console.log(values)
-    // try {
-    //     axios({
-    //         url: "http://localhost:3003/Form",
-    //         method: "post",
-    //         data: values,
-    //     })
-    // } catch (error) {
-    //     console.log('errors');
-    // }
+    const hashedPassword = bcrypt.hashSync(values.password);
+    console.log(hashedPassword)
+    try {
+        axios({
+            url: "http://localhost:3003/Form",
+            method: "post",
+            data: {
+                name: values.name,
+                email: values.email,
+                password: hashedPassword,
+                opinion: values.opinion
+            }
+        })
+    } catch (error) {
+        console.log('errors');
+    }
 }
 
 const validate = values => {
-    console.log(values.name)
     const errors = {};
 
     if (!values.name) {
@@ -147,7 +154,7 @@ const Form = () => {
                                 <div style={errorInputs}>{formik.errors.opinion}</div>
                             </div>
                         </div>
-                        <div style={{ marginLeft: "210px"}}>
+                        <div style={{marginLeft: "210px"}}>
                             <Button variant="contained" sx={"background-color: lightblue;"} type="submit">
                                 <strong style={{color: "black"}}>Send</strong>
                             </Button>
