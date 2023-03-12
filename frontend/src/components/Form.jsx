@@ -35,12 +35,20 @@ const initialValues = {
     opinion: ''
 }
 
+
 const onSubmit = (values) => {
+    const hashedPassword = bcrypt.hashSync(values.password);
+    console.log(hashedPassword)
     try {
         axios({
             url: "http://localhost:3003/Form",
             method: "post",
-            data: values,
+            data: {
+                name: values.name,
+                email: values.email,
+                password: hashedPassword,
+                opinion: values.opinion
+            }
         })
     } catch (error) {
         console.log('errors');
@@ -48,7 +56,6 @@ const onSubmit = (values) => {
 }
 
 const validate = values => {
-    console.log(values.name)
     const errors = {};
 
     if (!values.name) {
