@@ -18,7 +18,8 @@ const inputs = {
 
 const errorInputs = {
     color: "red",
-    flex: 1
+    flex: 1,
+    margin: "0 20px",
 }
 
 const opinions = {
@@ -35,16 +36,15 @@ const initialValues = {
 }
 
 const onSubmit = (values) => {
-    console.log(values)
-    // try {
-    //     axios({
-    //         url: "http://localhost:3003/Form",
-    //         method: "post",
-    //         data: values,
-    //     })
-    // } catch (error) {
-    //     console.log('errors');
-    // }
+    try {
+        axios({
+            url: "http://localhost:3003/Form",
+            method: "post",
+            data: values,
+        })
+    } catch (error) {
+        console.log('errors');
+    }
 }
 
 const validate = values => {
@@ -147,7 +147,7 @@ const Form = () => {
                                 <div style={errorInputs}>{formik.errors.opinion}</div>
                             </div>
                         </div>
-                        <div style={{ marginLeft: "210px"}}>
+                        <div style={{marginLeft: "210px"}}>
                             <Button variant="contained" sx={"background-color: lightblue;"} type="submit">
                                 <strong style={{color: "black"}}>Send</strong>
                             </Button>
