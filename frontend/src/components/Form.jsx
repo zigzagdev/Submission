@@ -1,7 +1,6 @@
-import React, {useState,} from 'react';
+import React from 'react';
 import axios from "axios";
 import {Button} from "@mui/material";
-import {useNavigate} from "react-router-dom";
 import bcrypt from 'bcryptjs';
 import {useFormik} from "formik";
 
@@ -66,12 +65,16 @@ const validate = values => {
 
     if (!values.email) {
         errors.email = 'Your email must be required !!'
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        errors.email = 'Email format is invalid';
     }
 
     if (!values.password) {
         errors.password = 'Password must be required !!'
     } else if (values.password.length < 8 || values.password.length > 1000) {
         errors.password = 'Password must be filled in 8 to 1000 characters .'
+    } else if (!/^[a-zA-Z0-9!-/:-@¥[-`{-~]*$/.test(values.password)) {
+        errors.password = 'Password format is only allowed to use alphabet, number and symbol .';
     }
 
     if (!values.opinion) {
@@ -79,7 +82,6 @@ const validate = values => {
     } else if (values.opinion.length < 5 || values.opinion.length > 10000) {
         errors.opinion = 'Opinion must be filled in 5 to 10000 characters .'
     }
-
     return errors;
 }
 
