@@ -61,6 +61,8 @@ const validate = values => {
         errors.name = 'Name must be required !!'
     } else if (!/^[a-zA-Z]+$/.test(values.name)) {
         errors.name = 'Name must be in alphabet !!'
+    } else  if (values.name.length < 4 || values.name.length > 100) {
+        errors.name = 'Name must be filled in 4 to 100 characters. !'
     }
 
     if (!values.email) {
@@ -108,8 +110,11 @@ const Form = () => {
                                     style={inputs}
                                     onChange={formik.handleChange}
                                     value={formik.values.name}
+                                    onBlur={formik.handleBlur}
                                 />
-                                <div style={errorInputs}>{formik.errors.name}</div>
+                                {formik.touched.name && formik.errors.name? (
+                                    <div style={errorInputs}>{formik.errors.name}</div>
+                                ) : null}
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -122,8 +127,11 @@ const Form = () => {
                                        style={inputs}
                                        onChange={formik.handleChange}
                                        value={formik.values.email}
+                                       onBlur={formik.handleBlur}
                                 />
-                                <div style={errorInputs}>{formik.errors.email}</div>
+                                {formik.touched.email && formik.errors.email ? (
+                                    <div style={errorInputs}>{formik.errors.email}</div>
+                                ) : null}
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -138,8 +146,11 @@ const Form = () => {
                                     style={inputs}
                                     onChange={formik.handleChange}
                                     value={formik.values.password}
+                                    onBlur={formik.handleBlur}
                                 />
-                                <div style={errorInputs}>{formik.errors.password}</div>
+                                {formik.touched.password && formik.errors.password? (
+                                    <div style={errorInputs}>{formik.errors.password}</div>
+                                ) : null}
                             </div>
                         </div>
                         <div style={{margin: "5% 0", display: "flex"}}>
@@ -152,8 +163,11 @@ const Form = () => {
                                       style={opinions}
                                       onChange={formik.handleChange}
                                       value={formik.values.opinion}
+                                      onBlur={formik.handleBlur}
                             />
-                                <div style={errorInputs}>{formik.errors.opinion}</div>
+                                {formik.touched.opinion && formik.errors.opinion? (
+                                    <div style={errorInputs}>{formik.errors.opinion}</div>
+                                ) : null}
                             </div>
                         </div>
                         <div style={{marginLeft: "210px"}}>
