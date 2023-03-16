@@ -78,67 +78,68 @@ const Form = () => {
         onSubmit,
         validate
     });
-    return (<div className="Form">
-        <h1 style={{display: "inline-block", margin: "5% 20% 2% 25%"}}>Submission</h1>
-        <div style={{border: "3px solid #000000", margin: "0 300px", borderRadius: "5%"}}>
-            <div style={form}>
-                <form onSubmit={formik.handleSubmit}>
-                    <div style={{margin: "5% 0", display: "flex"}}>
-                        <div style={{width: "90px"}}>
-                            <label htmlFor="name">Name:</label>
+    return (
+        <div className="Form">
+            <h1 style={{display: "inline-block", margin: "5% 20% 2% 25%"}}>Submission</h1>
+            <div style={{border: "3px solid #000000", margin: "0 300px", borderRadius: "5%"}}>
+                <div style={form}>
+                    <form onSubmit={formik.handleSubmit}>
+                        <div style={{margin: "5% 0", display: "flex"}}>
+                            <div style={{width: "90px"}}>
+                                <label htmlFor="name">Name:</label>
+                            </div>
+                            <div style={{flex: 1}}>
+                                <input
+                                    id="name"
+                                    name="name"
+                                    style={inputs}
+                                    onChange={formik.handleChange}
+                                    value={formik.values.name}
+                                    onBlur={formik.handleBlur}
+                                />
+                                {formik.touched.name && formik.errors.name ? (
+                                    <div style={errorInputs}>{formik.errors.name}</div>) : null}
+                            </div>
                         </div>
-                        <div style={{flex: 1}}>
-                            <input
-                                id="name"
-                                name="name"
-                                style={inputs}
-                                onChange={formik.handleChange}
-                                value={formik.values.name}
-                                onBlur={formik.handleBlur}
-                            />
-                            {formik.touched.name && formik.errors.name ? (
-                                <div style={errorInputs}>{formik.errors.name}</div>) : null}
+                        <div style={{margin: "5% 0", display: "flex"}}>
+                            <div style={{width: "90px"}}>
+                                <label htmlFor="email">Email:</label>
+                            </div>
+                            <div style={{flex: 1}}>
+                                <input id="email"
+                                       name="email"
+                                       style={inputs}
+                                       onChange={formik.handleChange}
+                                       value={formik.values.email}
+                                       onBlur={formik.handleBlur}
+                                />
+                                {formik.touched.email && formik.errors.email ? (
+                                    <div style={errorInputs}>{formik.errors.email}</div>) : null}
+                            </div>
                         </div>
-                    </div>
-                    <div style={{margin: "5% 0", display: "flex"}}>
-                        <div style={{width: "90px"}}>
-                            <label htmlFor="email">Email:</label>
+                        <div style={{margin: "5% 0", display: "flex"}}>
+                            <div style={{width: "90px"}}>
+                                <label htmlFor="password">Password:</label>
+                            </div>
+                            <div style={{flex: 1}}>
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    style={inputs}
+                                    onChange={formik.handleChange}
+                                    value={formik.values.password}
+                                    onBlur={formik.handleBlur}
+                                />
+                                {formik.touched.password && formik.errors.password ? (
+                                    <div style={errorInputs}>{formik.errors.password}</div>) : null}
+                            </div>
                         </div>
-                        <div style={{flex: 1}}>
-                            <input id="email"
-                                   name="email"
-                                   style={inputs}
-                                   onChange={formik.handleChange}
-                                   value={formik.values.email}
-                                   onBlur={formik.handleBlur}
-                            />
-                            {formik.touched.email && formik.errors.email ? (
-                                <div style={errorInputs}>{formik.errors.email}</div>) : null}
-                        </div>
-                    </div>
-                    <div style={{margin: "5% 0", display: "flex"}}>
-                        <div style={{width: "90px"}}>
-                            <label htmlFor="password">Password:</label>
-                        </div>
-                        <div style={{flex: 1}}>
-                            <input
-                                id="password"
-                                name="password"
-                                type="password"
-                                style={inputs}
-                                onChange={formik.handleChange}
-                                value={formik.values.password}
-                                onBlur={formik.handleBlur}
-                            />
-                            {formik.touched.password && formik.errors.password ? (
-                                <div style={errorInputs}>{formik.errors.password}</div>) : null}
-                        </div>
-                    </div>
-                    <div style={{margin: "5% 0", display: "flex"}}>
-                        <div style={{width: "90px"}}>
-                            <label htmlFor="opinion">Opinion:</label>
-                        </div>
-                        <div style={{flex: 1}}>
+                        <div style={{margin: "5% 0", display: "flex"}}>
+                            <div style={{width: "90px"}}>
+                                <label htmlFor="opinion">Opinion:</label>
+                            </div>
+                            <div style={{flex: 1}}>
                             <textarea id="opinion"
                                       name="opinion"
                                       style={opinions}
@@ -146,19 +147,19 @@ const Form = () => {
                                       value={formik.values.opinion}
                                       onBlur={formik.handleBlur}
                             />
-                            {formik.touched.opinion && formik.errors.opinion ? (
-                                <div style={errorInputs}>{formik.errors.opinion}</div>) : null}
+                                {formik.touched.opinion && formik.errors.opinion ? (
+                                    <div style={errorInputs}>{formik.errors.opinion}</div>) : null}
+                            </div>
                         </div>
-                    </div>
-                    <div style={{marginLeft: "210px"}}>
-                        <Button variant="contained" sx={"background-color: lightblue;"} type="submit">
-                            <strong style={{color: "black"}}>Send</strong>
-                        </Button>
-                    </div>
-                </form>
+                        <div style={{marginLeft: "210px"}}>
+                            <Button variant="contained" sx={"background-color: lightblue;"} type="submit">
+                                <strong style={{color: "black"}}>Send</strong>
+                            </Button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 export default Form;
