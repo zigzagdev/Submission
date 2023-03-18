@@ -27,7 +27,6 @@ const initialValues = {
 
 const onSubmit = (values) => {
     const hashedPassword = bcrypt.hashSync(values.password);
-    console.log(hashedPassword)
     try {
         axios({
             url: "http://localhost:3003/Form", method: "post", data: {
